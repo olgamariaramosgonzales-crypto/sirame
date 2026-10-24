@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#9E2A4A">
+<title>SIRAME</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="app"></div>
+<noscript>Activa JavaScript para usar SIRAME.</noscript>
+
+<!-- ============ ESTRUCTURA: INICIO DE SESIÓN ============ -->
+<template id="t-login">
+  <aside class="hero">
+    <div class="logo">
+      <img src="/fotos/logo.png" alt="SIRAME" data-fb=".fb">
+      <span class="fb" data-ico="box" data-s="36"></span>
+    </div>
+    <p class="tag">Sistema de Inventario de Equipos</p>
+    <div class="rule"></div>
+    <p class="desc">Sistema de Inventario, Registro y Administración de Materiales y Equipos (INFRAMEN).</p>
+    <div class="feat">
+      <h3>¿Qué puedes hacer aquí?</h3>
+      <ul>
+        <li>Consultar el inventario de equipos</li>
+        <li>Reportar incidencias y equipos perdidos</li>
+        <li>Gestionar traslados y mantenimientos</li>
+        <li>Generar reportes en Excel y PDF</li>
+      </ul>
+    </div>
+
+    <!-- Carrusel automático: 3 imágenes (si alguna no existe, se omite) -->
+    <div class="car" id="car" aria-label="Galería de imágenes">
+      <div class="car-track">
+        <img src="/fotos/portada.jpg" alt="">
+        <img src="/fotos/carrusel-2.jpg" alt="">
+        <img src="/fotos/carrusel-3.jpg" alt="">
+      </div>
+      <div class="car-dots"></div>
+    </div>
+  </aside>
+
+  <section class="sheet">
+    <h2>Iniciar sesión</h2>
+    <p class="sub">Ingresa tus credenciales para acceder al sistema</p>
+    <form id="fm">
+      <label class="fld"><span>Usuario</span>
+        <input name="usuario" type="text" required autocomplete="username">
+      </label>
+      <label class="fld"><span>Contraseña</span>
+        <div class="pw">
+          <input id="clave" name="clave" type="password" required autocomplete="current-password">
+          <button type="button" class="eye" data-eye aria-label="Mostrar contraseña" data-ico="eye"></button>
+        </div>
+      </label>
+      <button class="btn" type="submit">INGRESAR</button>
+    </form>
+    <p class="alt">¿No tienes cuenta? <a href="#/registro">Crea una</a></p>
+    <p class="hint">Si olvidaste tu contraseña, contacta al administrador.</p>
+
+  </section>
+</template>
+
+<!-- ============ ESTRUCTURA: PÁGINA DE INICIO ============ -->
+<template id="t-inicio">
+  <header class="bar">
+    <h1>
+      <span class="logo">
+        <img src="/fotos/logo.png" alt="SIRAME" data-fb=".fb">
+        <span class="fb" data-ico="box" data-s="18"></span>
+      </span>
+      <span class="fb">SIRAME</span>
+    </h1>
+    <button class="ib" id="out" aria-label="Cerrar sesión" data-ico="out"></button>
+    <div class="av sm" id="av"></div>
+  </header>
+
+  <main class="pg">
+    <div class="hello">
+      <div class="hello-img">
+        <img src="/fotos/portada.jpg" alt="" data-fb=".ph">
+        <div class="ph" data-ico="image" data-s="44"></div>
+      </div>
+      <div class="hello-body">
+        <div>
+          <b>Bienvenido, <span id="who"></span></b><br>
+          <span class="bd" id="rol"></span>
+          <small>Gestiona el inventario, los traslados, los mantenimientos y las incidencias de la institución.</small>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="h3">Resumen del inventario</h2>
+    <div class="kpis">
+      <div class="kpi"><i data-ico="box"></i><div><b data-k="total_equipos">0</b><small>Total</small></div></div>
+      <div class="kpi"><i data-ico="ok"></i><div><b data-k="buenos">0</b><small>Buenos</small></div></div>
+      <div class="kpi"><i data-ico="alert"></i><div><b data-k="danados">0</b><small>Dañados</small></div></div>
+      <div class="kpi"><i data-ico="wrench"></i><div><b data-k="en_mantenimiento">0</b><small>Mantenimiento</small></div></div>
+      <div class="kpi"><i data-ico="alertc"></i><div><b data-k="incidencias_abiertas">0</b><small>Incidencias</small></div></div>
+      <div class="kpi"><i data-ico="archive"></i><div><b data-k="bajas">0</b><small>Bajas</small></div></div>
+    </div>
+
+    <div class="gap" id="est"></div>
+
+    <h2 class="h3">Módulos disponibles</h2>
+    <div class="mods" id="mods"></div>
+  </main>
+</template>
+
+<!-- ============ ESTRUCTURA: MARCO DE LAS DEMÁS PÁGINAS ============ -->
+<template id="t-shell">
+  <header class="bar">
+    <button class="ib" id="bk" aria-label="Regresar" data-ico="arrowl"></button>
+    <h1 id="st"></h1>
+    <a class="ib" id="hm" href="#/inicio" aria-label="Ir al inicio" data-ico="home"></a>
+  </header>
+  <main class="pg" id="pgb"></main>
+</template>
+
+<script src="js/app.js"></script>
+</body>
+</html>
